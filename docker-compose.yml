@@ -35,3 +35,55 @@ networks:
 volumes:
   postgres:
   pgadmin:
+
+
+###################### ANOTHER CONFIG ############################
+#version: '3.5'
+#
+#services:
+#  postgres:
+#    container_name: 'postgres'
+#    image: 'postgres'
+#    restart: 'always'
+#    environment:
+#      - 'POSTGRES_USER=amigoscode'
+#      - 'POSTGRES_PASSWORD=root123'
+#      - 'PGDATA=/data/postgres'
+#    volumes:
+#      - postgres:/data/postgres
+#    ports:
+#      - protocol: 'tcp'
+#        target: 5432
+#        published: 5432
+#        mode: 'host'
+#    networks:
+#      - postgres
+#
+#  pgadmin:
+#    image: 'dpage/pgadmin4'
+#    container_name: 'pgadmin'
+#    restart: 'always'
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: '${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}'
+#      PGADMIN_DEFAULT_PASSWORD: '${PGADMIN_DEFAULT_PASSWORD:-admin}'
+#      PGADMIN_CONFIG_SERVER_MODE: 'False'
+#    volumes:
+#      - 'pgadmin:/var/lib/pgadmin'
+#    ports:
+#      - mode: host
+#        protocol: tcp
+#        target: 80
+#        published: 5050
+#    networks:
+#      - postgres
+#
+#networks:
+#  postgres:
+#    driver: bridge
+#  spring:
+#    driver: bridge
+#
+#
+#volumes:
+#  postgres:
+#  pgadmin:
